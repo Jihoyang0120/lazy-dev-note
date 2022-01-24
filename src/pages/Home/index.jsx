@@ -31,7 +31,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="main-body">
       {/* Page Header */}
       <Header />
 
@@ -42,7 +42,7 @@ const Home = () => {
         formSubmit={handleSearchBar}
         handleSearchKey={(e) => setSearchKey(e.target.value)}
       />
-
+      
       {/* Blog List & Empty View */}
       {!blogs.length ? <EmptyList /> : <BlogList blogs={blogs} />}
     </div>
