@@ -1,8 +1,8 @@
-import React from "react";
-import { useState } from "react";
+import { motion } from "framer-motion";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
-import LogoComponents from "../subComponents/LogoComponents";
+import LogoComponent from "../subComponents/LogoComponents";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
 import { YinYang } from "./AllSvgs";
@@ -38,7 +38,6 @@ const Contact = styled(NavLink)`
   text-decoration: none;
   z-index: 1;
 `;
-
 const BLOG = styled(NavLink)`
   color: ${(props) => props.theme.text};
   position: absolute;
@@ -50,10 +49,11 @@ const BLOG = styled(NavLink)`
 `;
 const WORK = styled(NavLink)`
   color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
+
   position: absolute;
   top: 50%;
   left: calc(1rem + 2vw);
-  transform: rotate(-90deg) translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(-90deg);
   text-decoration: none;
   z-index: 1;
 `;
@@ -74,7 +74,6 @@ const ABOUT = styled(NavLink)`
   text-decoration: none;
   z-index: 1;
 `;
-
 const SKILLS = styled(NavLink)`
   color: ${(props) => props.theme.text};
   text-decoration: none;
@@ -82,36 +81,38 @@ const SKILLS = styled(NavLink)`
 `;
 
 const rotate = keyframes`
-from {transform: rotate(0)
+from{
+    transform: rotate(0);
 }
-to {
+to{
     transform: rotate(360deg);
 }
 `;
+
 const Center = styled.button`
-position: absolute;
-top: ${(props) => (props.click ? "85%" : "50%")};
-left: ${(props) => (props.click ? "92%" : "50%")};
-transform: translate: (-50%,-50%);
-border:none;
-outline: none;
-background-color: transparent;
-cursor: pointer;
+  position: absolute;
+  top: ${(props) => (props.click ? "85%" : "50%")};
+  left: ${(props) => (props.click ? "92%" : "50%")};
+  transform: translate(-50%, -50%);
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
 
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-transition: all 1s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
 
-&>:first-child{
+  & > :first-child {
     animation: ${rotate} infinite 1.5s linear;
-}
+  }
 
-&>:last-child{
-    padding-top:1rem;
-    display: ${(props) => (props.click ? "none%" : "inline-block")};;
-}
+  & > :last-child {
+    display: ${(props) => (props.click ? "none" : "inline-block")};
+    padding-top: 1rem;
+  }
 `;
 
 const DarkDiv = styled.div`
@@ -128,6 +129,7 @@ const DarkDiv = styled.div`
 
 const Main = () => {
   const [click, setClick] = useState(false);
+
   const handleClick = () => setClick(!click);
 
   return (
@@ -135,8 +137,9 @@ const Main = () => {
       <DarkDiv click={click} />
       <Container>
         <PowerButton />
-        <LogoComponents theme={click ? "dark" : "light"} />
+        <LogoComponent theme={click ? "dark" : "light"} />
         <SocialIcons theme={click ? "dark" : "light"} />
+
         <Center click={click}>
           <YinYang
             onClick={() => handleClick()}
@@ -144,31 +147,96 @@ const Main = () => {
             height={click ? 120 : 200}
             fill="currentColor"
           />
-          <span>Click here</span>
+          <span>click here</span>
         </Center>
 
         <Contact
           target="_blank"
-          to={{ pathname: "mailto:jyangca@connect.ust.hk" }}
+          to={{ pathname: "mailto:jyangca@connet.ust.hk" }}
         >
-          <h2>Say Hi!</h2>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Say hi..
+          </motion.h2>
         </Contact>
-        <BLOG target="_blank" to="/blog">
-          <h2>Blog</h2>
+        <BLOG to="/blog">
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Blog
+          </motion.h2>
         </BLOG>
-        <WORK to="/work" click={click}>
-          <h2>Work</h2>
+        <WORK to="/work" click={+click}>
+          <motion.h2
+            initial={{
+              y: -200,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            animate={{
+              y: 0,
+              transition: { type: "spring", duration: 1.5, delay: 1 },
+            }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            Work
+          </motion.h2>
         </WORK>
         <BottomBar>
-          <ABOUT to="/about" click={click}>
-            <h2>Work</h2>
+          <ABOUT to="/about" click={+click}>
+            <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              About.
+            </motion.h2>
           </ABOUT>
           <SKILLS to="/skills">
-            <h2>My Skills</h2>
+            <motion.h2
+              initial={{
+                y: 200,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              animate={{
+                y: 0,
+                transition: { type: "spring", duration: 1.5, delay: 1 },
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              My Skills.
+            </motion.h2>
           </SKILLS>
         </BottomBar>
       </Container>
-      {click ? <Intro /> : null}
+      {click ? <Intro click={click} /> : null}
     </MainContainer>
   );
 };

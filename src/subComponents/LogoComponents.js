@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { DarkTheme } from "../Themes";
+import { DarkTheme } from "../components/Themes";
 
 const Logo = styled.h1`
   display: inline-block;
@@ -14,8 +14,8 @@ const Logo = styled.h1`
   z-index: 3;
 `;
 
-const LogoComponents = (props) => {
-  return <Logo color={props.theme}>Jyangca</Logo>;
+const LogoComponent = (props) => {
+  return <Logo color={props.theme}>CB</Logo>;
 };
 
-export default LogoComponents;
+export default LogoComponent;
