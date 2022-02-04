@@ -5,7 +5,7 @@ import styled, { keyframes } from "styled-components";
 import LogoComponent from "../subComponents/LogoComponents";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
-import { YinYang } from "./AllSvgs";
+import { Bichon } from "./AllSvgs";
 import Intro from "./Intro";
 
 const MainContainer = styled.div`
@@ -141,10 +141,9 @@ const Main = () => {
         <SocialIcons theme={click ? "dark" : "light"} />
 
         <Center click={click}>
-          <YinYang
+          <Bichon
             onClick={() => handleClick()}
-            width={click ? 120 : 200}
-            height={click ? 120 : 200}
+            viewBox={click ? "0 0 500 500" : "0 0 450 450"}
             fill="currentColor"
           />
           <span>click here</span>
