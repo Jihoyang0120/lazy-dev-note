@@ -7,6 +7,7 @@ import LogoComponent from "../subComponents/LogoComponents";
 import PowerButton from "../subComponents/PowerButton";
 import SocialIcons from "../subComponents/SocialIcons";
 import ParticleComponent from "../subComponents/ParticleComponent";
+import BigTitle from "./BigTitle";
 
 const Box = styled.div`
 background-color: ${(props) => props.theme.body}
@@ -115,6 +116,7 @@ const MySkillsPage = () => {
             </ul>
           </Description>
         </Main>
+        <BigTitle text="SKILLS" top="5rem" left="5rem" />
       </Box>
     </ThemeProvider>
   );

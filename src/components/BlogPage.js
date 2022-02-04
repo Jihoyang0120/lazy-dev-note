@@ -4,6 +4,7 @@ import img from "../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg";
 import LogoComponent from "../subComponents/LogoComponents";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
+import BigTitle from "./BigTitle";
 
 import { Blogs } from "../data/BlogData";
 import BlogComponent from "./BlogComponent";
@@ -82,6 +83,7 @@ const BlogPage = () => {
             })}
           </Grid>
         </Center>
+        <BigTitle text="BLOG" top="5rem" left="5rem" />
       </Container>
     </MainContainer>
   );
