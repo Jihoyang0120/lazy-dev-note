@@ -1,3 +1,5 @@
+// Home button
+
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
@@ -10,8 +12,8 @@ const Power = styled.button`
   transform: translate(-50%, 0);
 
   background-color: #fcf6f4;
-  border-radius: 50%;
   padding: 0.3rem;
+  border-radius: 50%;
   border: 1px solid #000;
   width: 2.5rem;
   height: 2.5rem;
@@ -27,6 +29,7 @@ const Power = styled.button`
     background-color: rgba(0, 255, 0, 0.4);
     box-shadow: 0 0 8px 6px rgba(0, 255, 0, 0.2);
   }
+
   & > *:first-child {
     text-decoration: none;
     color: inherit;
