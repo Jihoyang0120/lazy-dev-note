@@ -143,7 +143,8 @@ const Main = () => {
         <Center click={click}>
           <Bichon
             onClick={() => handleClick()}
-            viewBox={click ? "0 0 500 500" : "0 0 450 450"}
+            width={click ? 120 : 200}
+            height={click ? 120 : 200}
             fill="currentColor"
           />
           <span>click here</span>
