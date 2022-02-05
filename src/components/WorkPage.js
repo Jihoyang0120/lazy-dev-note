@@ -35,8 +35,8 @@ const Main = styled(motion.ul)`
 const Rotate = styled.span`
   display: block;
   position: fixed;
-  right: 40rem;
-  bottom: 15rem;
+  right: 2rem;
+  bottom: 2rem;
   width: 80px;
   height: 80px;
   z-index: 1;
@@ -84,7 +84,7 @@ const WorkPage = () => {
           ))}
         </Main>
         <Rotate ref={bichon}>
-          <Bichon viewBox={"0 0 600 600"} fill={DarkTheme.text} />
+          <Bichon width="120" height="120" fill={DarkTheme.text} />
         </Rotate>
         <BigTitle text="WORK" top="-8%" right="10%" />
       </Box>
